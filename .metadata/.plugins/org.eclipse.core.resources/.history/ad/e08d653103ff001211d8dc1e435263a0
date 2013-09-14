@@ -1,0 +1,24 @@
+import java.net.*;
+import java.io.*;
+
+public class TcpClient {
+	public static void main(String[] args) {
+		try {
+			Socket s = new Socket("127.0.0.1",6666);
+			DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+			DataInputStream dis = new DataInputStream(s.getInputStream());
+			dos.writeUTF("testing------");
+//			Thread.sleep(5000);
+			dos.writeUTF("compile~~");
+			dis.readUTF();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} //catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			//e.printStackTrace();
+		//}
+	}
+
+}

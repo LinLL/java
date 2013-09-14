@@ -1,0 +1,18 @@
+import java.io.*;
+public class TestFileWrite {
+	public static void main(String[] args) {
+		FileWriter fw = null;
+		try{
+			int c;
+			fw = new FileWriter("Unicode.dat");
+			for(c=0; c<50000; c++){
+				fw.write(c);
+				fw.close();
+			}
+		}catch(IOException e){
+			System.out.print("File can't be created");
+			System.exit(-1);
+		}
+	}
+
+}

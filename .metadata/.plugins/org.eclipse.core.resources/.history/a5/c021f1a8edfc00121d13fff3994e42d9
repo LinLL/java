@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.Date;
+
+public class TestOutputStream {
+	public static void main(String[] args) {
+		String s = null;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try{
+			FileWriter fw = new FileWriter("log.txt",true);
+			fw.write("----------");
+			while((s = br.readLine()) != null){
+				if(s.equalsIgnoreCase("exit")!=false)
+				break;
+				System.out.println(s.toUpperCase());
+				fw.write(s);
+			}
+			fw.write("-----"+new Date()+"----");
+			br.close();
+			fw.close();
+		}catch(IOException e){
+			e.printStackTrace();
+			System.out.println("file can't open successfully");
+		}
+	}
+
+}
